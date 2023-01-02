@@ -20,4 +20,12 @@ func main()  {
 			break
 		}
 	}
+	RUTINA:
+		for i<10{
+			if i==4{
+				i+=2
+				goto RUTINA
+			}
+			i++
+		}
 }
