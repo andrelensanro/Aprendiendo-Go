@@ -1,0 +1,44 @@
+1. El switch a diferencia de otros lenguajes como C y C++ no es necesario ponerle un break
+2. Se puede colocar dos instrucciones en una misma linea siempre y cuando le pongas un punto 
+y coma después de las instrucciones.
+
+------------
+
+CR carry return
+LF 
+
+Linux(1 byte) \n new line 
+Windows(2 byte) \n new line \r return 
+
+------------
+
+1. Instrucciones para imprimir por pantalla
+
+a. fmt.Println("Hola", "mundo")
+b. fmt.Printf("%d")
+a. No es necesario poner un espacio, se introduce solo
+b. Imprimir algo con formato
+
+2. Instrucciones para recibir informacion
+
+fmt.Scanf("%verbo", &nombreVar)
+fmt.Scanln(&nombreVar)
+
+
+
+3. Manejo de Strings
+
+    con Scanln NO se pueden introducir textos con espacios
+para eso se usa el tipo de dato scanner
+
+    para concatenar dos strings se puede usar el operador
+de suma, BUT NO sirve con los numeros
+
+
+4. Manejo de errores
+
+    Con la condicion del if sobre la funcion Scan de la variable 
+scanner se verifica que no haya ocurrido un error (Recordar que es un 
+lenguaje que usa del lado del servidor)
+
+
