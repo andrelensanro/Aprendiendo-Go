@@ -42,5 +42,91 @@ scanner se verifica que no haya ocurrido un error(Recordar
 que es un lenguaje que usa del lado del servidor)
 
 5. Secciones
+Se hace uso de rutinas en combinacion con un goto
+Por ejemplo:
+    RUTINA:
+        goto RUTINA 
+Lo anterior sería un ciclo infinito, hay que tratarlo con condicionales, de tal
+forma que se comporte como un continue con una ligera modificación.
+
+6. Funciones
+Con go se puede devolver más de un valor en una función
+Con go se puede crear más de una variable y asignarle al mismo tiempo un valor
+Por ejemplo:
+    numero, estado := dos(5)
+A mi parecer ya no hay que indicarle que se recibirá un int y un bool ya que 
+se crea en función de los tipos de datos que retorna la función
+Con go se puede nombrar la variable de retorno y simplemenete colocar las
+operaciones con esa variable, al final es necesario colocar la palabra return
+Por ejemplo:
+    func funcionUno(entero int) (z int){
+        z = entero*2
+        return
+    }
+
+Funciones Variádicas
+
+Importante:
+Con go NO se puede hacer uso de sobrecargar funciones como en otros lenguajes de programación. En golang existe un concepto un tanto
+similar respecto a la variación de parametros que son las funciones
+variádicas, donde si no se sabe cuántos parametros exactamente pueden
+venir de una función o la cantidad de parametros puede variar se hace 
+uso de éstas de la siguiente forma:
+
+func funcionVariadica(parametro ...int) int{
+
+}
+los tres puntos está indicando que va a recibir un arreglo de enteros
+
+range sobre un vector o arreglo de go, devuelve dos valores:
+    1ro. el numero de elemento dentro del arreglo (iterador)
+    2do. el valor del elemento dentro del arreglo
+
+el uso de _ (guion bajo) ignora valores retornados 
+
+for it, num := range parametro{
+    fmt.Println(it, num)
+}
+
+Recuerda: funciones publicas con mayuscula el nombre, funciones locales 
+con minuscula el nombre.
 
 
+7. Funciones anonimas
+Con go se puede crear funciones que se pueden modificar en tiempo de ejecución
+
+Por ejemplo: 
+    var Calculo func(int, int) int = func(num1 int, num2 int) int{
+
+    }
+La variable Calculo es de tipo funcion que recibe dos enteros y retorna un entero. 
+
+Lo bueno de esto, es semejante a sobrecargar la funciones, solo que el numero y tipo de parametros debe ser respetado (ahí la sutileza diferencia).
+    Calculo = func(num1 int, num2 int) int{
+
+    }
+
+8. Closures
+Características:
+    Protección e insolación de código
+    Pueden acceder a variables creadas fuera de la función
+    Función que devuelve una función.
+
+Por ejemplo:
+    func Tabla(valor int) func() int{
+        numero:=valor 
+        secuencia:=0
+        return func() int{
+            secuencia+=1  
+            return numero*secuencia
+        }
+    }
+
+
+	tablaDel2:=2
+	Mitabla:=Tabla(tablaDel2)
+
+    func Mitabla() {
+		secuencia+=1  
+		return numero*secuencia
+	}
