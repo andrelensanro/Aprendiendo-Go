@@ -28,17 +28,19 @@ fmt.Scanln(&nombreVar)
 
 3. Manejo de Strings
 
-    con Scanln NO se pueden introducir textos con espacios
+    Con Scanln NO se pueden introducir textos con espacios
 para eso se usa el tipo de dato scanner
 
-    para concatenar dos strings se puede usar el operador
+    Para concatenar dos strings se puede usar el operador
 de suma, BUT NO sirve con los numeros
 
 
 4. Manejo de errores
 
-    Con la condicion del if sobre la funcion Scan de la variable 
-scanner se verifica que no haya ocurrido un error (Recordar que es un 
-lenguaje que usa del lado del servidor)
+    Con la condicion del if sobre la funcion Scan de la variable
+scanner se verifica que no haya ocurrido un error(Recordar 
+que es un lenguaje que usa del lado del servidor)
+
+5. Secciones
 
 
