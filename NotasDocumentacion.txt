@@ -1,0 +1,6 @@
+Source https://go.dev/tour/moretypes/1
+
+1. Pointers
+
+
+2. 

@@ -1,7 +1,8 @@
 1. El switch a diferencia de otros lenguajes como C y C++ no es necesario ponerle un break
 2. Se puede colocar dos instrucciones en una misma linea siempre y cuando le pongas un punto 
 y coma después de las instrucciones.
-
+3. No está permitido no poner llaves en los if else o cualquier otra instrucción de bloque 
+que solo contenga una sola instrucción.
 ------------
 
 CR carry return
@@ -130,3 +131,49 @@ Por ejemplo:
 		secuencia+=1  
 		return numero*secuencia
 	}
+
+
+9. Arreglos 
+
+Los arreglos en go pasan a ser muy similares a C y lo podemos imprimir como lo hace python
+
+Por ejemplo: se puede declarar un arreglo (1 dimensión) de tres formas distintas
+
+    var vector [10]int
+    vector := [10]int 
+    vector := [10]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 0}
+
+Una matriz de manera semejante solo que con dos o n pares de corchetes
+
+10. Los slices tipo python
+
+Son referencias a segmentos de arreglos, por lo que si son modificados se modificaran también los arreglos de donde provienen.
+
+10.1 Slice formado con make
+
+Por ejemplo: 
+
+    elementos := make([]int, 10, 20)
+    elementos := make([]int, 0, 0) <- también funciona a mi parecer es más costoso hacer algo así
+
+Existen dos conceptos distintos en un slice con make: largo (2do parametro) y capacidad (3er parametro):
+
+largo: es el tamaño que se m
+capacidad: es el tamaño maximo al cuál podría crecer
+
+Las asignaciones simples se hacen mientras todavía el largo sea válido.
+Después se hace con append hasta que se acabe la capacidad o más.
+
+El append es una operación costosa cuando la memoria que se aparto en un inicio 
+no es suficiente y tiene que buscar un nuevo lugar en la memoria para continuar 
+almacenando.
+
+La asignación se hace de la siguiente manera: elementos[i] = -1
+Mientras que con el append se hace así: elementos = append(elementos, -1)
+
+
+
+
+
+
+
