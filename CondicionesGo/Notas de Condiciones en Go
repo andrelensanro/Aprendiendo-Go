@@ -192,7 +192,9 @@ Agregar y modificar (igualito al map de c++) :
 
 Eliminar
     delete(campeonato, "Real madrid")
+
 Recorrer 
+    el range no lo ordena, no respeta orden, siempre lo cambia
 
 
 
