@@ -171,6 +171,32 @@ almacenando.
 La asignación se hace de la siguiente manera: elementos[i] = -1
 Mientras que con el append se hace así: elementos = append(elementos, -1)
 
+11. Mapas
+
+Los mapas se pueden crear de varias maneras.
+Primera. con la función make:
+
+    paises := make(map[string]string)
+    paises := make(map[string]string, 5)
+    campeonato := map[string]int{
+        "Algo":23,
+        "Siguiente valor": 23}
+    
+En el segundo se está indicando un valor refiriendo el tamaño del mapa, pero si se requiere agrandar go lo hará.
+Colocar el ultimo corchete al final de la última línea.
+Ordena de forma ascendente en función de la clave o key.
+
+Operaciones sobre un map:
+Agregar y modificar (igualito al map de c++) : 
+    campeonato["River Plate"] = 25
+
+Eliminar
+    delete(campeonato, "Real madrid")
+Recorrer 
+
+
+
+
 
 
 
