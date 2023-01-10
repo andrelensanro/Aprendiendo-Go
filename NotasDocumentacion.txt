@@ -1,6 +1,66 @@
 Source https://go.dev/tour/moretypes/1
 
 1. Pointers
+Like a C without pointer arithmetic.
+Example
+    var p * int
+    var p * char
+    var p * []int
+
+The operator & obtain the address of the variable
+    i := 42
+    p = &i
 
 
-2. 
+2. Structs 
+
+You just need to call it and you will be declaring it
+
+Example:
+type Point struct{
+    X int
+    Y int
+}
+
+func main() {
+	fmt.Println(Point{1, 2})
+}
+
+Your fields are accessed using a dot 
+
+p := Point{3, 4}
+
+p.X = 8
+p.Y = 12
+
+Exist the equivalence between dot and row
+
+p := Point{3, 4}
+pointer := &p
+
+pointer.X = 8 
+
+instead of pointer->X = 8
+
+In a struct literal you can assign a value to any struct field
+
+v := Vertex{X:-5} 
+
+"Y" has a value of cero
+
+
+Also you can to declare a struct so:
+
+s := []struct{
+    X int
+    Y bool
+    S string
+}{
+    {1, true,"Hola"},
+    {2, true, "Como"},
+    {3, true, "Estas"}}
+
+
+A array empty is equivalent to value "nil"
+
+
