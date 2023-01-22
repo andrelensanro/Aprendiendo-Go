@@ -197,11 +197,114 @@ Recorrer
     el range no lo ordena, no respeta orden, siempre lo cambia
 
 
+12. Interfaces
+
+Define conductas, comportamientos, mientras que las structs define valores.
+Un objeto con ciertos comportamientos. 
+
+Ejemplo:
+
+type humano interface{
+    respirar()
+    pensar()
+    comer()
+    sexo () string
+} 
+
+type animal interface{
+    respirar()
+    comer()
+    EsCarnivoro() bool
+}
+
+type vegetal interface{
+    ClasificacionVegetal() string
+}
 
 
+Cuando implementas las funciones de una interface la declaracion
+es la siguiente:
+
+    func (h *hombre) respirar()  {
+        h.respirando = true
+    }
+
+    func (h *hombre) sexo() string {
+        return "Hombre"
+    }
+
+func (un apuntador al struct/objeto que quieres que implemente la interface) nombre_de_la_funcion() tipo_dato_retorna {1
+
+}
 
 
+Así es como se definen las interfaces, solo contiene funciones.
+
+1ra Forma de usarla:
+Los objetos que están implementando todas las funciones que se definan en una 
+interface ya tienen acceso a los métodos.
+
+2da Forma de usarla:
+Por herencia puedes definir todo un objeto con el mismo nivel, en lugar de repetir todos los atributos y metodos de una clase muy parecida.
+
+Por ejemplo:
+
+type humano interface{
+    caminar() bool
+    nombrar()
+    tieneEdad() bool
+    estaCaminando() bool
+}   
+
+type hombre struct{
+    nombre string 
+    edad int
+    comer bool
+    camina bool
+}
+type mujer struct{
+    hombre
+}
+
+func (h *hombre) caminar() bool{
+}
+func (h *hombre) nombrar() {
+}
+func (h *hombre) tieneEdad() bool{
+}
+func (h *hombre) estaCaminando() bool{
+}
 
 
+Tras colocar que mujer hereda de hombre, hereda TODO y no es necesario volver a reescribir las funciones.
 
+3ro. Es lo mismo que el codigo segundo, usando dos funciones extras para manejar cualquier cosa que sea definido como Animal.
+
+4to. Se puede crear una clase que funcione como una encapsulación de varias clases en una sola y acceder desde esta a los N tipos de clases distintas, donde también hay que colocar todas las funciones que contenga esa clase que encapsula dentro del resto de las interfaces.
+Ejemplo:
+type SerVivo interface{
+	EstaVivo() bool 
+}
+type humano interface{
+	respirar()
+	comer()
+	pensar()
+	sexo() string
+	EstaVivo() bool// van a pertenecer a la misma interface de SerVivo
+}
+type animal interface{
+	respirar()
+	comer()
+	EsCarnivoro() bool
+	EstaVivo() bool // va a implementar SerVivo también
+}
+
+SerVivo encapsula a humano y animal, y los objetos que sean humanos tambien seran seres vivos, o los objetos que sean declarados como animales tambien seran seres vivos. 
+
+func estoyVivo(sv SerVivo) int {
+	if sv.EstaVivo() {return 1}
+	return 0
+}
+
+De cierta manera se puede hacer una analogía con base de datos, es un atributo de anclaje.
 
