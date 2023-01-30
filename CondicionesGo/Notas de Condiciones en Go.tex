@@ -308,3 +308,18 @@ func estoyVivo(sv SerVivo) int {
 
 De cierta manera se puede hacer una analogía con base de datos, es un atributo de anclaje.
 
+\section{Recursion}
+\par La recursion se maneja igual que en C++
+
+\section {Archivos}
+\par Hay 2 formas para leer archivos y 2 formas de escribir un archivo
+
+\section{Excepciones}
+\par Existen 3 formas para cachar los errores y que no estén tan feos para el usuario:
+\begin{itemize}
+    \item panic: el mensaje de error que lanza el sistema o el propio programador
+    \item recover: encapsula el ultimo mensaje de panic 
+    \item defer: Es una instrucción que si o si se ejecuta al final de la funcion que la contiene, no importa en que lugar se encuentre de la funcion, se ejecutara al final.
+\end{itemize}
+
+

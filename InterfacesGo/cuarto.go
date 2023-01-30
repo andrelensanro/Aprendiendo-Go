@@ -1,4 +1,4 @@
-package main
+package cuarto
 
 import (
 	"fmt"
@@ -93,5 +93,5 @@ func main(){
 		if(vivos[i].EstaVivo()){ cont++;}
 	}
 	fmt.Println("Hay",cont,"seres vivos")
-
+	fmt.Println("Estoy vivo = %t", estoyVivo(Dogo))
 }
