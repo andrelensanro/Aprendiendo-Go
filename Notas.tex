@@ -1,0 +1,123 @@
+\documentclass[]{book}
+\usepackage[spanish]{babel} 
+\usepackage[dvipsnames]{xcolor} % Para usar colores mas variados
+\usepackage{tcolorbox} % Para usar los cuadros
+\usepackage{listings} % Para colocar trozos de código
+\usepackage{hyperref} % Para usar href
+\lstdefinestyle{customc}{ % style del trozo de código
+  belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  frame=L,
+  xleftmargin=\parindent,
+  language=C,
+  showstringspaces=false,
+  basicstyle=\footnotesize\ttfamily,
+  keywordstyle=\bfseries\color{green!40!black},
+  commentstyle=\itshape\color{purple!40!black},
+  identifierstyle=\color{blue},
+  stringstyle=\color{orange},
+}
+\lstdefinestyle{customhtml}{ % style del trozo de código
+  belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  frame=L,
+  xleftmargin=\parindent,
+  language=HTML,
+  showstringspaces=false,
+  basicstyle=\footnotesize\ttfamily,
+  keywordstyle=\bfseries\color{LimeGreen!40!periwinkle},
+  commentstyle=\itshape\color{purple!40!000cc},
+  identifierstyle=\color{blue},
+  stringstyle=\color{orange},
+}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+}
+\title{\bf Aprendiendo Go}          
+\author{Andrea Robles}                        
+\date{enero, 2023}                          
+\begin{document}
+\frontmatter
+\maketitle
+\tableofcontents
+\mainmatter
+\chapter{Sintaxis de Go}
+\begin{center}
+\textit{En esta parte se describe el resumen o síntesis
+del capítulo.}
+\end{center}
+
+\section{Asincronía y promesas en Go}
+    \par La asincronía en go es distinta a diferencia de otros lenguajes. El papel de la asincronía es indicar que instruccion deberá ejecutar de manera paralela al resto de las instrucciones.
+
+    \par Según GPT3 go maneja de la siguiente manera la asincronía: Go maneja la asincronía a través de la utilización de Goroutines y Channels. Una Goroutine es una rutina ligera que se ejecuta en paralelo con otras Goroutines en un mismo proceso. Los Canales son estructuras de datos que permiten a las Goroutines comunicarse entre sí de manera segura y sincronizada. La combinación de Goroutines y Canales permite a los programadores escribir código asíncrono de manera fácil y clara.
+    \begin{tcolorbox}[
+        title = Ejemplo de la asincronia en Go] 
+        \begin{lstlisting}[language=go]
+            import (
+                "fmt"
+                "strings"
+                "time"
+            )
+            func main(){
+                go miNombreLento("Andrea Selene")
+            }
+
+            func miNombreLento(nombre string){
+                letras := strings.Split(nombre, "")
+                for _, letra := range letras{
+                    time.Sleep(time.Second)
+                    fmt.Println(letra)
+                }
+            }
+        \end{lstlisting}
+    \end{tcolorbox}
+\section{Canales en Go}
+   \par Un canal en Go sirve para tener control de las instrucciones asincronas.
+   \begin{tcolorbox}[
+    title = Ejemplo de Canales en Go]
+    \lstinputlisting[style=customc]{CanalesGo/main.go}
+
+   \end{tcolorbox}
+\section{Servidores}
+\begin{center}
+    \hyperlink{https://gowebexamples.com/http-server/}{ Ejemplos de Go en WEB.}
+\end{center}
+\par ¿Qué pasa con Go en la web?
+\begin{itemize}
+    \item Funciona como servidor o del lado del backend de endpoints
+    \item Hay una función por cada endpoint que se quiera servir
+    \item Se pueden manejar templates de html en go
+\end{itemize}
+\begin{tcolorbox}[
+    title = Servidor en Go]
+    \lstinputlisting[style=customc]{ServidorGo/main.go}
+    
+\end{tcolorbox}
+% \subitem \centering{\em{\textcolor{red}{index.html}}}
+\par Donde los archivos .html son los siguientes:
+
+\begin{tcolorbox}[
+    title = index.html]
+    \lstinputlisting[style=customhtml]{ServidorGo/index.html}
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+    title = login.html
+    ]
+    \lstinputlisting[style=customhtml]{ServidorGo/login.html}
+\end{tcolorbox}
+
+\section{Middlewares}
+\par Son interceptores que permiten ejecutar instrucciones comunes a varias funciones que reciben y devuleven los mismos tipos de variables. Esto es, se escribe un middleware comun a varias funciones. 
+
+
+
+
+
+
+\end{document}
+
+
